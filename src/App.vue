@@ -1,28 +1,40 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div style="height: 15em; background: red;"></div>
+    <ScrollComponent
+        @scroll_change="current_scroll_step=$event"
+    >
+        <template slot="graph">
+            <div class="graph">
+                Test test <b>{{current_scroll_step}}</b>
+            </div>
+        </template>
+
+        <div class="scroll_step" :data-scroll_step="s" v-for="s in ['Schritt 1','Schritt 2','Schritt 3']" :key="s">
+            Step: {{s}}
+        </div>
+    </ScrollComponent>
+    <div style="height: 100vh; background: red;"></div>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import ScrollComponent from './components/ScrollComponent.vue';
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld,
-  },
+    name: 'app',
+    components: {
+        ScrollComponent,
+    },
+    data: () => ({
+        current_scroll_step: 'test',
+    })
 };
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+.graph {
+    height:20vh;
 }
 </style>
