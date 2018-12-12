@@ -15,7 +15,6 @@
 import * as d3 from 'd3';
 import { graphScroll } from '../lib/graph-scroll';
 
-
 export default {
     name: 'ScrollComponent',
     props: {

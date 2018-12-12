@@ -5,8 +5,12 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build-lib": "vue-cli-service build --target lib --name vue-scroll-component ./src/components/ScrollComponent.vue"
   },
+  "main": "dist/vue-scroll-component.umd.min.js",
+  "module": "dist/vue-scroll-component.esm.js",
+  "unpkg": "dist/vue-scroll-component.umd.min.js",
   "dependencies": {
     "d3": "^5.7.0",
     "vue": "^2.5.17"
