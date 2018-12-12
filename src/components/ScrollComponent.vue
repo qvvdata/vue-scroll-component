@@ -1,7 +1,7 @@
 <template>
   <div class="qvvdata_scrollsection">
-    <div class="graph_holder">
-      <div class="graph">
+    <div class="graph_holder" :style="{height: `${graph_holder_height}px`}">
+      <div class="graph" v-if="graph_holder_height">
         <slot name="graph"></slot>
       </div>
     </div>
@@ -27,6 +27,7 @@ export default {
     data: () => ({
         graphScroll: null, // future graphScroll instance
         scroll_state: null, // future scroll state
+        graph_holder_height: null, // graph holder height, to ensure it's always 100 % of viewport height minus header
     }),
     methods: {
         update_graphScroll() {
@@ -37,6 +38,19 @@ export default {
                     .sections(d3.select(this.$el).selectAll('.scroll_steps > .scroll_step'))
                     .container(d3.select(this.$el));
             }
+        },
+        resize() {
+            let h = 450;
+            const iw = this.$el.clientWidth;
+
+            if (iw > 700) {
+                h = window.innerHeight - 120;
+            } else {
+                h = window.innerHeight - 60;
+            }
+
+            this.graph_holder_height = h;
+            // this.width = window.innerWidth;
         }
     },
     watch: {
@@ -55,7 +69,9 @@ export default {
                 }
             });
         this.update_graphScroll();
+        window.addEventListener('resize', this.resize);
         setInterval(this.update_graphScroll, 500);
+        this.resize();
     },
     updated() {
         this.update_graphScroll();

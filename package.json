@@ -16,7 +16,7 @@
     "vue": "^2.5.17"
   },
   "browser": {
-      "sfc": "src/components/ScrollComponent.vue"
+    "sfc": "src/components/ScrollComponent.vue"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.1.1",
@@ -25,6 +25,7 @@
     "@vue/eslint-config-airbnb": "^4.0.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.8.0",
+    "eslint-config-airbnb": "^17.1.0",
     "eslint-config-qvvdata": "github:qvvdata/eslint-config-qvvdata",
     "eslint-plugin-vue": "^5.0.0-0",
     "vue-template-compiler": "^2.5.17"
