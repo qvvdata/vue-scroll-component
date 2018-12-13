@@ -147,7 +147,7 @@ export default {
   .qvvdata_scrollsection .scroll_steps {
       border-top: 61px solid transparent;
   }
-  .qvvdata_scrollsection >> .graph {
+  .qvvdata_scrollsection >>> .graph_holder {
       margin-top: 61px;
   }
 }
