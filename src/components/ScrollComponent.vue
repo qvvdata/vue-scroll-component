@@ -34,7 +34,7 @@ export default {
             if (this.graphScroll) {
                 this.graphScroll
                     .graph(d3.select(this.$el).select('.graph_holder'))
-                    .offset(window.innerHeight * 0.8 - 110)
+                    .offset(window.innerHeight * 0.2 - 110)
                     .sections(d3.select(this.$el).selectAll('.scroll_steps > .scroll_step'))
                     .container(d3.select(this.$el));
             }
@@ -127,8 +127,8 @@ export default {
 }
 
 .qvvdata_scrollsection .scroll_steps >>> .scroll_step {
-    margin-bottom: 70vh;
-    margin-top: 10vh;
+    margin-top: 70vh;
+    margin-bottom: 10vh;
     opacity: 0.5;
 }
 
