@@ -102,6 +102,7 @@ export default {
     left: 0;
     width: 100%;
     margin-top: 110px;
+    z-index: 49;
 }
 
 .qvvdata_scrollsection.graph-scroll-fixed >>> .graph_holder {
@@ -120,17 +121,24 @@ export default {
 }
 
 .qvvdata_scrollsection .scroll_steps {
-    position: relative;
-    z-index: 50;
+    /* position: relative; */
+    /* z-index: 50; */
     border-top: 110px solid transparent;
-    padding-bottom: 1px;
+    padding-bottom: 10vh; /* fixes margin-caused stutter at bottom */
 }
 
 .qvvdata_scrollsection .scroll_steps >>> .scroll_step {
     margin-top: 70vh;
     margin-bottom: 10vh;
+    z-index: 50;
     opacity: 0.5;
+    position: relative;
 }
+
+.qvvdata_scrollsection .scroll_steps >>> .scroll_step:last-child {
+    margin-bottom: 0;
+}
+
 
 
 .qvvdata_scrollsection .scroll_steps .graph-scroll-active.scroll_step {
@@ -142,7 +150,10 @@ export default {
       position: relative;
       top: -61px;
       margin-bottom: -61px;
-      z-index: -1;
+      z-index: 0; /* this is a compromise.
+                     -1 would mean it has no impact on the text around it, but would not allow interaction with graph or text
+                     0 allows interaction, but since we have a negative top margin, it also disables interaction on content within 110px on top of the scroll section
+                  */
   }
   .qvvdata_scrollsection .scroll_steps {
       border-top: 61px solid transparent;
