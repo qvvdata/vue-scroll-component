@@ -32,9 +32,10 @@ export default {
     methods: {
         update_graphScroll() {
             if (this.graphScroll) {
+                console.log(this.$el.clientWidth > 700 ? 120 : 60);
                 this.graphScroll
                     .graph(d3.select(this.$el).select('.graph_holder'))
-                    .offset(window.innerHeight * 0.2 - 110)
+                    .offset(this.$el.clientWidth > 700 ? 120 : 60)
                     .sections(d3.select(this.$el).selectAll('.scroll_steps > .scroll_step'))
                     .container(d3.select(this.$el));
             }
@@ -93,7 +94,10 @@ export default {
     position: relative;
     top: -110px;
     margin-bottom: -110px;
-    z-index: -1;
+    z-index: 0; /* this is a compromise.
+                   -1 would mean it has no impact on the text around it, but would not allow interaction with graph or text
+                   0 allows interaction, but since we have a negative top margin, it also disables interaction on content within 110px on top of the scroll section
+                */
 }
 
 .qvvdata_scrollsection >>> .graph_holder  {
@@ -139,8 +143,6 @@ export default {
     margin-bottom: 0;
 }
 
-
-
 .qvvdata_scrollsection .scroll_steps .graph-scroll-active.scroll_step {
   opacity: 1;
 }
@@ -150,10 +152,6 @@ export default {
       position: relative;
       top: -61px;
       margin-bottom: -61px;
-      z-index: 0; /* this is a compromise.
-                     -1 would mean it has no impact on the text around it, but would not allow interaction with graph or text
-                     0 allows interaction, but since we have a negative top margin, it also disables interaction on content within 110px on top of the scroll section
-                  */
   }
   .qvvdata_scrollsection .scroll_steps {
       border-top: 61px solid transparent;
