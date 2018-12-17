@@ -32,7 +32,6 @@ export default {
     methods: {
         update_graphScroll() {
             if (this.graphScroll) {
-                console.log(this.$el.clientWidth > 700 ? 120 : 60);
                 this.graphScroll
                     .graph(d3.select(this.$el).select('.graph_holder'))
                     .offset(this.$el.clientWidth > 700 ? 120 : 60)
