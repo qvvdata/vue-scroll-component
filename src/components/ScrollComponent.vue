@@ -91,11 +91,11 @@ export default {
 
 .qvvdata_scrollsection {
     position: relative;
-    top: -110px;
-    margin-bottom: -110px;
+    top: -115px;
+    margin-bottom: -115px;
     z-index: 0; /* this is a compromise.
                    -1 would mean it has no impact on the text around it, but would not allow interaction with graph or text
-                   0 allows interaction, but since we have a negative top margin, it also disables interaction on content within 110px on top of the scroll section
+                   0 allows interaction, but since we have a negative top margin, it also disables interaction on content within 115px on top of the scroll section
                 */
 }
 
@@ -104,7 +104,7 @@ export default {
     top: 0;
     left: 0;
     width: 100%;
-    margin-top: 110px;
+    margin-top: 115px;
     z-index: 49;
 }
 
@@ -120,13 +120,13 @@ export default {
     position: absolute;
     top: auto;
     margin: 0;
-    margin-bottom: -110px;
+    margin-bottom: -115px;
 }
 
 .qvvdata_scrollsection .scroll_steps {
     /* position: relative; */
     /* z-index: 50; */
-    border-top: 110px solid transparent;
+    border-top: 115px solid transparent;
     padding-bottom: 10vh; /* fixes margin-caused stutter at bottom */
 }
 
